@@ -13,6 +13,7 @@ resource "openstack_compute_instance_v2" "instance" {
   security_groups = [openstack_networking_secgroup_v2.secgroup.name]
   user_data = templatefile("${path.module}/user-data.yaml.tftpl", {
     k3s_token = random_password.k3s_token.result
+    timezone  = var.timezone
     args = join(" ", [
       (
         count.index == 0 ?

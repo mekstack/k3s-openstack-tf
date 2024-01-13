@@ -19,6 +19,12 @@ variable "key_pair" {
   description = "Name of the keypair to pass to instances"
 }
 
+variable "timezone" {
+  type        = string
+  description = "Timezone for instances"
+  default     = "Europe/Moscow"
+}
+
 variable "image_id" {
   type = string
 }

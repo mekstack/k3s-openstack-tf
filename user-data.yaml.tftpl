@@ -1,5 +1,8 @@
 #cloud-config
 
+user-data:
+  timezone: ${timezone}
+
 runcmd:
 - export K3S_TOKEN=${k3s_token}
 - curl -sfL https://get.k3s.io | sh -s - server ${args}
