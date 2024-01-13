@@ -1,0 +1,6 @@
+#cloud-config
+
+runcmd:
+- export K3S_TOKEN=${k3s_token}
+- curl -sfL https://get.k3s.io | sh -s - server ${args}
+- kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/calico.yaml
